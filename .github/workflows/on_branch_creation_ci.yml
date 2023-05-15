@@ -5,7 +5,7 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: Make envfile
-         uses: Wind-River-Systems/create-envfile@v1.3
+         uses: Wind-River-Systems/create-envfile@latest
          with:
            envkey_looker_repo_branch: development
            directory: .github
