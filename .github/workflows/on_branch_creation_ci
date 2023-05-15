@@ -1,0 +1,15 @@
+name: Reset tmp_ci.env file variables to default.
+on: create
+jobs:
+  set_env_vars:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Make envfile
+         uses: Wind-River-Systems/create-envfile@v1.3
+         with:
+           envkey_looker_repo_branch: development
+           directory: .github
+           file_name: tmp_ci.env
+           fail_on_empty: true
+       - uses: actions/checkout@v3
+       - run : npm install && npm run test:ci
