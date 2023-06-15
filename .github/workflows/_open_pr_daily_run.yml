@@ -11,7 +11,7 @@ jobs:
 
 # Adds a blank commit for anything with the daily refresh label.
     steps:
-      - uses: vanstinator/re-run-open-prs-on-base-update@v1.3
+      - uses: vanstinator/re-run-open-prs-on-base-update@v1.3.0
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           skip_failed_runs: false
