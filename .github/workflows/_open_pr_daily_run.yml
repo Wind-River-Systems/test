@@ -1,0 +1,19 @@
+name: QA Daily Data Refresh
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+    #every five minutes
+  workflow_dispatch:
+
+jobs:
+  retrigger-workflows-on-open-prs:
+    runs-on: ubuntu-latest
+
+# Adds a blank commit for anything with the daily refresh label.
+    steps:
+      - uses: vanstinator/re-run-open-prs-on-base-update@v1.4.0
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          skip_failed_runs: false
+          require_label_regex: daily_refresh
+        
