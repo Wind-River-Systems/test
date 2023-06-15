@@ -9,7 +9,9 @@ jobs:
   retrigger-workflows-on-open-prs:
     runs-on: ubuntu-latest
 
-# Adds a blank commit for anything with the daily refresh label.
     steps:
-      - uses: vanstinator/re-run-open-prs-on-base-update@v1.3.0
-
+      - uses: vanstinator/re-run-open-prs-on-base-update@v1
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          skip_failed_runs: false
+          require_label_regex: daily_refresh
